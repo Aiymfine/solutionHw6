@@ -1,8 +1,11 @@
 class JuniorSupportHandler extends SupportHandler{
-    public JuniorSupportHandler(){
-        this.level=SupportHandler.MEDIUM;
-    }
-    protected void process(String issue) {
-        System.out.println("[JuniorSupport] Handled: "+ issue);
+    public void handle(String issue){
+        if(issue.equals("refund_request") || issue.equals("billing_issue")){
+            System.out.println("[JuniorSupport] Handled "+ issue);
+        } else if(next !=null){
+            next.handle(issue);
+        } else{
+            System.out.println("[JuniorSupport] Cannot handle "+ issue+ " — escalate manually");
+        }
     }
 }
