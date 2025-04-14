@@ -1,8 +1,8 @@
-class FAQBotHandler extends SupportHandler{
-    public FAQBotHandler(){
-        this.level=SupportHandler.LOW;
+abstract class SupportHandler{
+    protected SupportHandler next;
+    public SupportHandler setNext(SupportHandler next){
+        this.next=next;
+        return next;
     }
-    protected void process(String issue){
-        System.out.println("[FAQBot] Handled: "+issue);
-    }
+    public abstract void handle(String issue);
 }
