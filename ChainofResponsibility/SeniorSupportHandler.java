@@ -1,12 +1,9 @@
 class SeniorSupportHandler extends SupportHandler{
-    public SeniorSupportHandler(){
-        this.level=SupportHandler.HIGH;
-    }
-    protected void process(String issue){
-        if(issue.equals("unknown_bug")){
-            System.out.println("[SeniorSupport] Cannot handle: "+ issue+ " — escalate manually");
+    public void handle(String issue){
+        if(issue.equals("account_ban") || issue.equals("data_loss")){
+            System.out.println("[SeniorSupport] Handled "+ issue);
         } else{
-            System.out.println("[SeniorSupport] Handled: "+ issue);
+            System.out.println("[SeniorSupport] Cannot handle "+ issue+ " — escalate manually");
         }
     }
 }
